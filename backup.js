@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const crypto = require('crypto');
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
 // const PORT = process.env.PORT || 3000;
 
 // Set up EJS as the view engine
@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch((error)=>{
     console.log(error);
 })
-app.listen(3000,(req,res)=>{
+app.listen(4000,(req,res)=>{
     console.log("Port is listening on port 4000");
 });
 // Define the user schema and model (in a separate file if preferred)
