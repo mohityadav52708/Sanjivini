@@ -66,7 +66,7 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/login.html');
 });
 
 
@@ -100,14 +100,14 @@ app.get("/healthCare", function(req, res){
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/login.html');
 });
 
-app.get('/index', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+app.get('/login', (req, res) => {
+  res.sendFile(__dirname + '/public/login.html');
 });
 
-app.post('/index', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -117,7 +117,7 @@ app.post('/index', async (req, res) => {
 
     if (!user) {
       console.log('User not found');
-      return res.sendFile(__dirname + '/public/index.html');
+      return res.sendFile(__dirname + '/public/login.html');
     }
 
     console.log('Entered Password:', password);
@@ -136,10 +136,10 @@ app.post('/index', async (req, res) => {
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
-      return res.sendFile(__dirname + '/public/index.html');
+      return res.sendFile(__dirname + '/public/login.html');
     }
   } catch (error) {
-    console.error('Error during index:', error);
+    console.error('Error during login:', error);
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
@@ -155,7 +155,7 @@ app.post('/signup', async (req, res) => {
 
   try {
     await User.create({ email, password: hashedPassword });
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/public/login.html');
   } catch (error) {
     res.sendFile(__dirname + '/public/signup.html', { error: 'User already exists' });
   }
@@ -166,7 +166,7 @@ app.get('/logout', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.redirect('/index'); // Redirect to the index page after logout
+        res.redirect('/login'); // Redirect to the login page after logout
       }
     });
   });
