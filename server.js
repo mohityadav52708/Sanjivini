@@ -11,8 +11,9 @@ const randomstring = require('randomstring');
 const crypto = require('crypto');
 const app = express();
 const PORT = 4000;
+// const PORT = process.env.PORT || 3000;
 
-
+// Set up EJS as the view engine
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -21,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
-//For database
+// Connect to MongoDB (replace 'auth-app' with your actual database name)
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -35,7 +36,15 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.listen(3000,(req,res)=>{
     console.log("Port is listening on port 4000");
 });
-
+// Define the user schema and model (in a separate file if preferred)
+const UserSchema = new mongoose.Schema({
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  verificationKey: { type: String },
+  resetToken: { type: String },
+  resetTokenExpiry: { type: Date },
+});
+const User = mongoose.model('User', UserSchema);
 const patientSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -74,14 +83,7 @@ app.post('/submit', async (req, res) => {
     res.status(500).send('Error submitting data.');
   }
 });
-const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  verificationKey: { type: String },
-  resetToken: { type: String },
-  resetTokenExpiry: { type: Date },
-});
-const User = mongoose.model('User', UserSchema);
+
 
 //For routing
 app.get("/contact", function(req, res){
@@ -96,6 +98,7 @@ app.get("/healthCare", function(req, res){
 });
 
 
+// Routes
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/login.html');
 });
@@ -129,7 +132,7 @@ app.post('/login', async (req, res) => {
     if (bcrypt.compareSync(enteredPasswordTrimmed, hashedPasswordTrimmed)) {
       // Authentication successful, store user session
       req.session.userId = user._id;
-      return res.sendFile(__dirname + '/public/index.html');
+      return res.sendFile(__dirname + '/public/home.html');
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
@@ -252,8 +255,9 @@ app.post('/reset-password', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+// Start the server
 
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
-})
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
