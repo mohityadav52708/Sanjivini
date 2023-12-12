@@ -129,7 +129,7 @@ app.post('/login', async (req, res) => {
     if (bcrypt.compareSync(enteredPasswordTrimmed, hashedPasswordTrimmed)) {
       // Authentication successful, store user session
       req.session.userId = user._id;
-      return res.sendFile(__dirname + '/public/home.html');
+      return res.sendFile(__dirname + '/public/index.html');
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
