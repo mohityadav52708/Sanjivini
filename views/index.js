@@ -15,7 +15,6 @@ const PORT = 3000;
 
 // Set up EJS as the view engine
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -62,11 +61,11 @@ const Patient = mongoose.model('Patient', patientSchema);
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../views')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+  res.sendFile(path.join(__dirname, '../views/login.html'));
 });
 
 app.post('/submit', async (req, res) => {
@@ -99,11 +98,11 @@ app.get("/healthCare", function(req, res){
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+  res.sendFile(path.join(__dirname, '../views/login.html'));
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+  res.sendFile(path.join(__dirname, '../views/login.html'));
 
 });
 
@@ -117,7 +116,7 @@ app.post('/login', async (req, res) => {
 
     if (!user) {
       console.log('User not found');
-      return res.sendFile(path.join(__dirname, '../public/login.html'));
+      return res.sendFile(path.join(__dirname, '../views/login.html'));
     }
 
     console.log('Entered Password:', password);
@@ -132,11 +131,11 @@ app.post('/login', async (req, res) => {
     if (bcrypt.compareSync(enteredPasswordTrimmed, hashedPasswordTrimmed)) {
       // Authentication successful, store user session
       req.session.userId = user._id;
-      return   res.sendFile(path.join(__dirname, '../public/home.html'));
+      return   res.sendFile(path.join(__dirname, '../views/home.html'));
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
-      return res.sendFile(path.join(__dirname, '../public/login.html'));
+      return res.sendFile(path.join(__dirname, '../views/login.html'));
     }
   } catch (error) {
     console.error('Error during login:', error);
@@ -146,7 +145,7 @@ app.post('/login', async (req, res) => {
 
 
 app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/signup.html'));
+  res.sendFile(path.join(__dirname, '../views/signup.html'));
 });
 
 app.post('/signup', async (req, res) => {
@@ -155,9 +154,9 @@ app.post('/signup', async (req, res) => {
 
   try {
     await User.create({ email, password: hashedPassword });
-    res.sendFile(path.join(__dirname, '../public/login.html'));
+    res.sendFile(path.join(__dirname, '../views/login.html'));
   } catch (error) {
-    res.sendFile(path.join(__dirname, '../public/signup.html'), { error: 'User already exists' });
+    res.sendFile(path.join(__dirname, '../views/signup.html'), { error: 'User already exists' });
   }
 });
 app.get('/logout', (req, res) => {
@@ -166,7 +165,7 @@ app.get('/logout', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.sendFile(path.join(__dirname, '../public/login.html')); // Redirect to the login page after logout
+        res.sendFile(path.join(__dirname, '../views/login.html')); // Redirect to the login page after logout
       }
     });
   });
@@ -216,7 +215,7 @@ app.post('/forgot-password', async (req, res) => {
     }
 
     const redirectUrl = `/reset-password?email=${email}`;
-    res.sendFile(path.join(__dirname, '../public/reset-password.html'));
+    res.sendFile(path.join(__dirname, '../views/reset-password.html'));
     // res.json({ message: 'Reset email sent. Check your inbox.', redirectUrl, resetToken });
   });
 });
