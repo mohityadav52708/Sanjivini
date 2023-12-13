@@ -32,9 +32,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch((error)=>{
     console.log(error);
 })
-app.listen(4000,(req,res)=>{
-    console.log("Port is listening on port 4000");
-});
+
 // Define the user schema and model (in a separate file if preferred)
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true },
@@ -65,7 +63,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.post('/submit', async (req, res) => {
@@ -98,11 +96,11 @@ app.get("/healthCare", function(req, res){
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/login.html'));
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 
 });
 
@@ -116,7 +114,7 @@ app.post('/login', async (req, res) => {
 
     if (!user) {
       console.log('User not found');
-      return res.sendFile(path.join(__dirname, '../public/login.html'));
+      return res.sendFile(path.join(__dirname, '../public/index.html'));
     }
 
     console.log('Entered Password:', password);
@@ -135,10 +133,10 @@ app.post('/login', async (req, res) => {
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
-      return res.sendFile(path.join(__dirname, '../public/login.html'));
+      return res.sendFile(path.join(__dirname, '../public/index.html'));
     }
   } catch (error) {
-    console.error('Error during login:', error);
+    console.error('Error during index:', error);
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
@@ -154,7 +152,7 @@ app.post('/signup', async (req, res) => {
 
   try {
     await User.create({ email, password: hashedPassword });
-    res.sendFile(path.join(__dirname, '../public/login.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
   } catch (error) {
     res.sendFile(path.join(__dirname, '../public/signup.html'), { error: 'User already exists' });
   }
@@ -165,7 +163,7 @@ app.get('/logout', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.sendFile(path.join(__dirname, '../public/login.html')); // Redirect to the login page after logout
+        res.sendFile(path.join(__dirname, '../public/index.html')); // Redirect to the index page after logout
       }
     });
   });

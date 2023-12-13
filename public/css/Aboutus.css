@@ -159,7 +159,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
-    background-image: url(about_page_doctor.jpg);  
+    background-image: url(../img/thirdhome_bg_image.jpg);  
 }
 .secondcontainer .minisecondhome .left .top{
     width: 100%;
