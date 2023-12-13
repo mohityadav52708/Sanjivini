@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const crypto = require('crypto');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 // const PORT = process.env.PORT || 3000;
 
 // Set up EJS as the view engine
@@ -65,7 +65,7 @@ app.use(express.static(path.join(__dirname, '../views')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/login.html'));
+  res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
 app.post('/submit', async (req, res) => {
@@ -98,15 +98,15 @@ app.get("/healthCare", function(req, res){
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/login.html'));
+  res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/login.html'));
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/index.html'));
 
 });
 
-app.post('/login', async (req, res) => {
+app.post('/index', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -116,7 +116,7 @@ app.post('/login', async (req, res) => {
 
     if (!user) {
       console.log('User not found');
-      return res.sendFile(path.join(__dirname, '../views/login.html'));
+      return res.sendFile(path.join(__dirname, '../views/index.html'));
     }
 
     console.log('Entered Password:', password);
@@ -135,10 +135,10 @@ app.post('/login', async (req, res) => {
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
-      return res.sendFile(path.join(__dirname, '../views/login.html'));
+      return res.sendFile(path.join(__dirname, '../views/index.html'));
     }
   } catch (error) {
-    console.error('Error during login:', error);
+    console.error('Error during index:', error);
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
@@ -154,7 +154,7 @@ app.post('/signup', async (req, res) => {
 
   try {
     await User.create({ email, password: hashedPassword });
-    res.sendFile(path.join(__dirname, '../views/login.html'));
+    res.sendFile(path.join(__dirname, '../views/index.html'));
   } catch (error) {
     res.sendFile(path.join(__dirname, '../views/signup.html'), { error: 'User already exists' });
   }
@@ -165,7 +165,7 @@ app.get('/logout', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.sendFile(path.join(__dirname, '../views/login.html')); // Redirect to the login page after logout
+        res.sendFile(path.join(__dirname, '../views/index.html')); // Redirect to the index page after logout
       }
     });
   });
