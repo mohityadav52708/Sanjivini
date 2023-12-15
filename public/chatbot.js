@@ -112,6 +112,32 @@ function getBotResponse(userMessage) {
     if (userMessage.toLowerCase().includes('cardiologist problem') || userMessage.toLowerCase().includes('cardiologist issue')||userMessage.toLowerCase().includes('Cardiology ')) {
         return "Cardiology is a branch of medicine that concerns diseases and disorders of the heart, which may range from congenital defects through to acquired heart diseases such as coronary artery disease.";
     }
+    if (
+        userMessage.toLowerCase().includes('fever') ||
+        userMessage.toUpperCase().includes('Fever symptoms') ||
+        userMessage.toLowerCase().includes('I have fever ')
+    ) {
+        return "Fever is a common symptom of various illnesses and infections. It is typically a sign that the body is responding to an infection, inflammation, or another medical condition. Here are common symptoms associated with fever. It's important to note that fever is a symptom, not a disease itself. It can be caused by various underlying conditions, such as infections (viral or bacterial), inflammatory disorders, or other medical conditions. If you or someone else is experiencing persistent or severe symptoms of fever, it's advisable to seek medical attention for a proper diagnosis and treatment.";
+    }
+
+    if (userMessage.toLowerCase().includes('cough') || userMessage.toLowerCase().includes('coughing')) {
+        return "Coughing is a common symptom that can be caused by various factors, including respiratory infections, allergies, or irritants. If you have a persistent or severe cough, it's recommended to consult with a healthcare professional for an evaluation.";
+    }
+
+    if (
+        userMessage.toLowerCase().includes('viral symptoms') ||
+        userMessage.toLowerCase().includes('common viral diseases') ||
+        userMessage.toLowerCase().includes('viral infection')
+    ) {
+        return "Common viral disease symptoms may include fever, cough, sore throat, fatigue, body aches, and respiratory symptoms. If you suspect a viral infection, it's important to rest, stay hydrated, and seek medical advice if symptoms worsen or persist.";
+    }
+    if (
+        userMessage.toLowerCase().includes('Jai Shree Ram') ||
+        userMessage.toLowerCase().includes('jai shree ram') ||
+        userMessage.toLowerCase().includes('ram ram')
+    ) {
+        return "Jai Shree Ram !! How can you assist you today ?";
+    }
 
     // Default response
     return "I'm a healthcare chatbot. I'm here to assist you with health-related questions.";
