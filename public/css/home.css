@@ -1360,5 +1360,12 @@ width: 50%;
         margin-left: 92vw;
     }
 }
-
- 
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 1080px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    /* Your styles for Redmi Note 10 Pro go here */
+    .chatbot_div_second{
+        margin-left: 92vw;
+    }
+}
