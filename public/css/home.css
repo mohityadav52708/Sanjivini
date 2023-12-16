@@ -118,6 +118,25 @@ body{
     color: whitesmoke;
     font-size: 30px;
 }
+    .chatbot_div_second {
+        display: inline-flex;
+        align-items: center;
+        background-color: #009faa;
+        color: #fff;
+        padding: 20px;
+        margin-top: 60vw;
+        margin-left: 70vw;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        animation: zoom-in-zoom-out 3s ease infinite;
+        position: fixed;
+        display: none;
+    
+}
+.chatbot_div_second i{
+    color: whitesmoke;
+    font-size: 30px;
+}
 @keyframes zoom-in-zoom-out {
     0% {
       transform: scale(1, 1);
@@ -932,7 +951,10 @@ body{
 }
 @media screen and (max-width: 600px) {
     .chatbot{
-        margin-left: -65px;
+        display: none;
+    }
+    .chatbot_div_second{
+        display: block;
     }
    .nav-list li a {
     font-size: 10px;
