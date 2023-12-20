@@ -955,6 +955,7 @@ body{
     }
     .chatbot_div_second{
         display: block;
+        margin-left: 95vw;
     }
    .nav-list li a {
     font-size: 10px;
