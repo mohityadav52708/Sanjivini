@@ -152,11 +152,14 @@
       margin-left: 0px;
     }
     .secondcontainer{
-      height: 95vw;
+      height: 105vw;
     }
     #signup_heading{
       margin-bottom: -25px;
       margin-top: 20px;
 
+    }
+    h1 span{
+      font-size: 35px;
     }
   }

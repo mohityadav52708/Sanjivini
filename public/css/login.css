@@ -152,7 +152,7 @@
       margin-left: 0px;
     }
     .secondcontainer{
-      height: 123vw;
+      height: 130vw;
     }
     #login_heading{
       margin-bottom: -25px;
@@ -161,5 +161,16 @@
     }
     h1 span{
       font-size: 42px;
+    }
+    .secondcontainer{
+      height: 135vw;
+    }
+    #signup_heading{
+      margin-bottom: -25px;
+      margin-top: 20px;
+
+    }
+    h1 span{
+      font-size: 35px;
     }
   }
