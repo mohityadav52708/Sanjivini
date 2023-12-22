@@ -114,10 +114,10 @@ app.post('/login', async (req, res) => {
     const user = await User.findOne({ email });
 
     console.log('User found:', user);
-
     if (!user) {
       console.log('User not found');
-      return res.sendFile(path.join(__dirname, '../public/index.html'));
+      // return res.sendFile(path.join(__dirname, '../public/index.html'));
+      return res.send('<script>alert("User not exist Please Signup !!"); window.location="/signup";</script>');
     }
 
     console.log('Entered Password:', password);
