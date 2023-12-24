@@ -114,10 +114,10 @@ app.post('/login', async (req, res) => {
     const user = await User.findOne({ email });
 
     console.log('User found:', user);
-
     if (!user) {
       console.log('User not found');
-      return res.sendFile(path.join(__dirname, '../public/index.html'));
+      // return res.sendFile(path.join(__dirname, '../public/index.html'));
+      return res.send('<script>alert("User not exist Please Signup !!"); window.location="/signup";</script>');
     }
 
     console.log('Entered Password:', password);
@@ -374,4 +374,106 @@ app.post('/reset-password', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+});
+const bookingSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  date: { type: Date, required: true },
+  time: { type: String, required: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  contact: { type: String, required: true },
+});
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
+const Booking = mongoose.model('Booking', bookingSchema);
+
+app.post('/book-appointment', async (req, res) => {
+  try {
+    const userId = req.session.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: 'User not authenticated.' });
+      
+    }
+
+    const { date, time, patientName, contactNumber } = req.body;
+
+
+
+    // Check if the user already has an upcoming appointment
+    const existingAppointment = await Booking.findOne({
+      user: userId,
+      date: { $gte: new Date() }, // Check for future dates
+    });
+
+    if (existingAppointment) {
+      return res.status(400).json({ message: 'You already have an upcoming appointment.' });
+      
+    }
+
+    // Check if there is an existing appointment for the specified date and time
+    const overlappingBooking = await Booking.findOne({ date, time });
+
+    if (overlappingBooking) {
+      return res.status(400).json({ message: 'Appointment already booked for this date and time.' });
+    }
+
+    // Get user details from the User model
+    const user = await User.findById(userId);
+
+    // Create a new booking
+    const newBooking = new Booking({
+      user: userId,
+      date,
+      time,
+      name: patientName,
+      email: user.email,
+      contact: contactNumber,
+    });
+
+    // Save the booking to the database
+    await newBooking.save();
+
+    // Send confirmation email to the user
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'Appointment Confirmation',
+      html: `
+        <p>Dear ${user.email},</p>
+        <p>Your appointment has been booked successfully!</p>
+        <p>Appointment Details:</p>
+        <ul>
+          <li>Date: ${date}</li>
+          <li>Time: ${time}</li>
+          <li>Patient Name: ${patientName}</li>
+          <li>Contact Number: ${contactNumber}</li>
+        </ul>
+        <p>Thank you for choosing our service!</p>
+      `,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Failed to send confirmation email:', error);
+        return res.status(500).json({ message: 'Failed to send confirmation email' });
+      }
+
+      res.json({ message: 'Appointment booked successfully. Confirmation email sent.' });
+    });
+
+  } catch (error) {
+    console.error('Error booking appointment:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
