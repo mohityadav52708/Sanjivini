@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,19 +164,6 @@
     padding: 8px;
     /* border: 2px solid black; */
   }
-  .bookinginformation{
-    width: 100%;
-    height: 6vh;
-    display: flex;
-    justify-content: space-around;
-  }
-  .minibookinghome{
-    width: 50%;
-    height:6vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   @media screen and (max-width:768px){
     .coverall{
       flex-direction: column;
@@ -227,19 +215,11 @@
 
     <label for="contactNumber">Contact Number:</label>
     <input type="tel" id="contactNumber" name="contactNumber" placeholder="Mobile Number"  required>
-<div class="bookinginformation">
-  <div class="minibookinghome">
+
     <label id="select_date" for="date">Select Date:</label>
-  </div>
-  <div class="minibookinghome">
     <input type="date" id="date" name="date" required>
-  </div>
-</div>
-<div class="bookinginformation">
-  <div class="minibookinghome">
+
     <label id="select_time" for="time">Select Time:</label>
-  </div>
-  <div class="minibookinghome">
     <select id="time" name="time" required>
       <!-- Generate time slots in 15-minute intervals -->
       <option value="09:00">09:00 AM</option>
@@ -247,22 +227,7 @@
       <option value="09:30">09:30 AM</option>
       <!-- Add more time slots as needed -->
     </select>
-  </div>
-</div>
-<div class="bookinginformation">
-  <div class="minibookinghome">
-    <label id="doctorName" for="doctorName">Select Doctor</label>
-  </div>
-  <div class="minibookinghome">
-    <select id="doctorName" name="doctorName" required>
-      <!-- Generate time slots in 15-minute intervals -->
-      <option value="Mohit Yadav">Mohit Yadav</option>
-      <option value="Rohit Yadav">Rohit Yadav</option>
-      <option value="Ganesh Yadav">Ganesh Yadav</option>
-      <!-- Add more time slots as needed -->
-    </select>
-  </div>
-</div>
+    <br>
     <button id="submit" type="submit">Book Appointment</button>
   </form>
 </div>
@@ -280,7 +245,6 @@
       const contactNumber = document.getElementById('contactNumber').value;
       const date = document.getElementById('date').value;
       const time = document.getElementById('time').value;
-const doctorName = document.querySelector('[name="doctorName"]').value;
 
       // Make an AJAX request to book appointment
       fetch('/book-appointment', {
@@ -294,7 +258,6 @@ const doctorName = document.querySelector('[name="doctorName"]').value;
           contactNumber,
           date,
           time,
-          doctorName,
         }),
       })
       .then(response => response.json())
@@ -312,4 +275,3 @@ const doctorName = document.querySelector('[name="doctorName"]').value;
   </script>
 </body>
 </html>
-<!-- booking.ejs -->

@@ -383,6 +383,7 @@ const bookingSchema = new mongoose.Schema({
   },
   date: { type: Date, required: true },
   time: { type: String, required: true },
+  doctorName: { type: String, required: true },
   name: { type: String, required: true },
   email: { type: String, required: true },
   contact: { type: String, required: true },
@@ -406,7 +407,7 @@ app.post('/book-appointment', async (req, res) => {
       
     }
 
-    const { date, time, patientName, contactNumber } = req.body;
+    const { date, time,patientName, contactNumber,doctorName } = req.body;
 
 
 
@@ -436,6 +437,7 @@ app.post('/book-appointment', async (req, res) => {
       user: userId,
       date,
       time,
+      doctorName,
       name: patientName,
       email: user.email,
       contact: contactNumber,
@@ -456,6 +458,7 @@ app.post('/book-appointment', async (req, res) => {
         <ul>
           <li>Date: ${date}</li>
           <li>Time: ${time}</li>
+          <li>Doctor Name: ${doctorName}</li>
           <li>Patient Name: ${patientName}</li>
           <li>Contact Number: ${contactNumber}</li>
         </ul>
