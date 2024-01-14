@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    /* background-image: linear-gradient(to right, #01141D  , #0d2f3f );  */
 }
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&family=Orbitron&family=Ubuntu&family=Varela+Round&display=swap');
 
@@ -21,7 +20,7 @@ body{
 }
 .grand{
     width: 100%;
-    height: 735vh;
+    height: auto;
 }
 .parent_container{
     opacity: 1;
@@ -263,7 +262,7 @@ body{
 }
 .firstchild_container .second .second_content{
     width: 80%;
-    height: 20vh;
+    height: auto;
     color: black;
     line-height: 1.8;
 }
@@ -331,7 +330,7 @@ body{
 }
 .secondchild_container .minisecondhome .right .top{
     width: 100%;
-    height: 45vh;
+    height: auto;
     background-color: red;
     background-image: linear-gradient(45deg,#0192bc,#44f3c9);
     border-top-left-radius: 8px;
@@ -674,7 +673,8 @@ body{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 20vh;
+    height: auto;
+    margin-bottom: 20px;
     color: rgb(245, 245, 245);
 }
 .fifthchild_container .fifthmini_home .fifthchild_content .top h3{
@@ -682,7 +682,7 @@ body{
     font-size: 25px;
 }
 .fifthchild_container .fifthmini_home .fifthchild_content .top h1{
-    font-size: 55px;
+    font-size: 45px;
 }
 .fifthchild_container .fifthmini_home .fifthchild_content .bottom{
     display: flex;
@@ -1074,7 +1074,7 @@ body{
 }
 .fourthchild_container .fourthmini_home .left {
     width: 92%;
-    height: 66vh;
+    height: 70vh;
     margin: 20px 20px;
 }
 .fourthchild_container .fourthmini_home {
@@ -1267,7 +1267,7 @@ width: 50%;
 }
 @media screen and (max-width: 400px) {
     .grand{
-        width: 127.9%;
+        width:100%;
     }
     .firstchild_container .first #welcome {
         font-size: 24px;
@@ -1308,7 +1308,7 @@ width: 50%;
         height: 0vh;
     }
     .secondchild_container {
-        height: 152vh;
+        height: 155vh;
     }
     .fourthchild_container .fourthmini_home {
         flex-direction: column;
@@ -1321,13 +1321,18 @@ width: 50%;
     }
     .fifthchild_container .fifthmini_home .fifthchild_content .bottom .boxes .box {
         width: 100%;
-        height: 90vh;
+        height: 72vh;
+    }
+    .fifthchild_container .fifthmini_home .fifthchild_content .bottom .boxes .box .bottom_of_box p {
+        color: #0192bc;
+        margin-top: 20px;
+        text-align: center;
     }
     .fifthchild_container .fifthmini_home .fifthchild_content .bottom .boxes .box .top_of_box img {
         object-fit: inherit;
     }
     .fifthchild_container {
-        height: 385vh;
+        height: 315vh;
     }
     .sixthchild_container {
         height: 85vh;
@@ -1345,6 +1350,6 @@ width: 50%;
     }
     .seventhchild_container {
         width: 100%;
-        height: 100vh;
+        height: 115vh;
     }
 }
