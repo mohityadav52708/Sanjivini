@@ -25,16 +25,16 @@
     <script src="float-panel.js"></script>
     <script>
         function confirmLogout() {
-          var isConfirmed = confirm("Are you sure you want to logout?");
-          if (isConfirmed) {
-            // If the user confirms, redirect to the logout URL
-            window.location.href = "/logout";
-          }
+            var isConfirmed = confirm("Are you sure you want to logout?");
+            if (isConfirmed) {
+                // If the user confirms, redirect to the logout URL
+                window.location.href = "/logout";
+            }
         }
-      </script>
-    
-      <!-- Add a button to trigger the logout confirmation -->
-      
+    </script>
+
+    <!-- Add a button to trigger the logout confirmation -->
+
 </head>
 
 <body>
@@ -42,10 +42,10 @@
         <div class="parent_container">
             <nav class="navbar">
                 <ul class="nav-list">
-                    <li><a  style="color:black;" href="./home.html">Home</a></li>
-                    <li><a  id="about" href="./AboutUs.html">About Us</a></li>
-                    <li><a  id="about" href="./contact.html">Contact</a></li>
-                    <li><a  id="about " href="./health_care.html">HealthHistory</a></li>
+                    <li><a style="color:black;" href="./home.html">Home</a></li>
+                    <li><a id="about" href="./AboutUs.html">About Us</a></li>
+                    <li><a id="about" href="./contact.html">Contact</a></li>
+                    <li><a id="about " href="./health_care.html">HealthHistory</a></li>
 
                     <!-- <li><a id="login" href="login.html">Login</a></li>
                 <li><a id="signup" href="signup.html">Signup</a></li> -->
@@ -56,7 +56,7 @@
                         </button>
                     </form>
                     <button id="logout" onclick="confirmLogout()">Logout</button>
-                   
+
 
                 </ul>
             </nav>
@@ -70,10 +70,10 @@
                         <h1 id="sanjivini"><SPAN>S&nbsp;A&nbsp;N&nbsp;J&nbsp;I&nbsp;V&nbsp;I&nbsp;N&nbsp;I</SPAN></h1>
                     </b>
                     <!-- <img src="/img/bg.jpg" alt=""> -->
-                    
+
                 </div>
                 <div class="second">
-                    
+
                     <div class="second_content">
                         <p>""Sanjivini, your trusted healthcare companion, is committed to your well-being. Our platform
                             offers a wealth of resources to empower you on your health journey. From a comprehensive
@@ -87,11 +87,11 @@
                     <div class="chatbot_div">
                         <a href="chatbot.html">
                             <form action="" class="chatbot">
-                                    <i class="fa-solid fa-robot">
-                                        
-                                    </i>
-                                </form>
-                            </a>
+                                <i class="fa-solid fa-robot">
+
+                                </i>
+                            </form>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -99,11 +99,11 @@
                 <div class="chatbot_div">
                     <a href="chatbot.html">
                         <form action="" class="chatbot_div_second">
-                                <i class="fa-solid fa-robot">
-                                    
-                                </i>
-                            </form>
-                        </a>
+                            <i class="fa-solid fa-robot">
+
+                            </i>
+                        </form>
+                    </a>
                 </div>
                 <div class="minisecondhome">
                     <div class="left">
@@ -178,40 +178,90 @@
                         </div>
                         <div class="thirdhome_bottom">
                             <div class="thirdhome_boxes">
-                                <div class="firstbox">
-                                    <img src="/img/heart.png" alt="">
-                                    <h3>CARDIOLOGY</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/heart.png" alt="">
+                                        <h3>CARDIOLOGY</h3>
+                                    </div>
+                                    <div class="project-back">
+                                        <h3 id="disease_heading">CARDIOLOGY</h3>
+                                        <p id="disease_para">Cardiology diseases, such as coronary artery disease and heart failure, impact the heart's function. Lifestyle choices and genetics play roles. Early detection and lifestyle adjustments are vital for effective management.</p>
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/eye.png" alt="">
-                                    <h3>OPHTHALMOLOGY</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/eye.png" alt="">
+                                        <h3>OPHTHALMOLOGY</h3>
+                                    </div>
+                                    <div   class="project-back">
+                                        <h3 id="disease_heading">OPHTHALMOLOGY</h3>
+                                        <p id="disease_para">Ophthalmology focuses on eye health and vision. From routine eye exams to complex surgeries, it addresses conditions like cataracts and glaucoma. Regular check-ups contribute to overall eye well-being.</p>
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/kidney.png" alt="">
-                                    <h3>PULMONARY</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/kidney.png" alt="">
+                                        <h3>PULMONARY</h3>
+                                    </div>
+                                    <div  class="project-back">
+                                        <h3 id="disease_heading">PULMONARY</h3>
+                                        <p id="disease_para">Pulmonary medicine specializes in respiratory health, managing conditions like asthma and chronic obstructive pulmonary disease (COPD). Expertise includes diagnostic tests and treatments to enhance lung function and overall respiratory wellness.</p>
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/teeth.png" alt="">
-                                    <h3>DENTAL</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/teeth.png" alt="">
+                                        <h3>DENTAL</h3>
+                                    </div>
+                                    <div  class="project-back">
+                                        <h3 id="disease_heading">DENTAL</h3>
+                                        <p id="disease_para">Dentistry focuses on oral health, addressing issues like cavities, gum diseases, and oral hygiene. Dental professionals provide preventive care, treatments, and cosmetic procedures, ensuring optimal dental well-being and a confident smile.</p>
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/diagonastic.png" alt="">
-                                    <h3>DIAGNOSTICS</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/diagonastic.png" alt="">
+                                        <h3>DIAGNOSTICS</h3>
+                                    </div>
+                                    <div  class="project-back">
+                                        <h3 id="disease_heading">DIAGNOSTICS</h3>
+                                        <p id="disease_para">Diagnostics play a crucial role in healthcare, involving tests and procedures to identify diseases. Accurate diagnostics guide medical decisions, enabling timely treatment and improving patient outcomes by ensuring precision in healthcare interventions.</p> 
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/for disabled.png" alt="">
-                                    <h3>FOR DISABLED</h3>
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/for disabled.png" alt="">
+                                        <h3>DISABLED</h3>
+                                    </div>
+                                    <div   class="project-back">
+                                        <h3 id="disease_heading">DISABLED</h3>
+                                        <p id="disease_para">Dedicated healthcare for individuals with disabilities focuses on providing tailored support and accessibility. Comprehensive care aims to enhance their well-being, addressing unique challenges and fostering inclusivity in the medical community.</p> 
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/traumotoligy.png" alt="">
-                                    <h3>TRAUMOTOLIGY</h3>
+                                
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/traumotoligy.png" alt="">
+                                        <h3>TRAUMOTOLIGY</h3>
+                                    </div>
+                                    <div     class="project-back">
+                                        <h3 id="disease_heading">TRAUMOTOLIGY</h3>
+                                        <p id="disease_para">Traumatology specializes in treating injuries and trauma-related conditions. It encompasses surgical and non-surgical interventions, rehabilitation, and emotional support to aid recovery, ensuring optimal outcomes for patients affected by trauma.</p> 
+                                    </div>
                                 </div>
-                                <div class="firstbox">
-                                    <img src="/img/laboratory.png" alt="">
-                                    <h3>LABORATORY</h3>
+                                
+                                <div class="project-card">
+                                    <div class="firstbox" class="project-front">
+                                        <img src="/img/laboratory.png" alt="">
+                                        <h3>LABORATORY</h3>
+                                    </div>
+                                    <div class="project-back">
+                                        <h3 id="disease_heading">LABORATORY</h3>
+                                        <p id="disease_para">Laboratory services play a vital role in healthcare, providing accurate diagnostic tests and analyses. From blood work to advanced screenings, laboratories contribute essential data for medical professionals to make informed decisions about patient care.</p> 
+                                    </div>
                                 </div>
-                                <!-- <div class="firstbox"></div> -->
-                            </div>
+                                
+                            </div> 
                         </div>
                     </div>
                 </div>
