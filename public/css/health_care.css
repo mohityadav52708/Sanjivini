@@ -141,6 +141,7 @@ body {
     rgba(5, 192, 255, 0.8) 0%,
     rgba(19, 247, 255, 0.8) 100%
   );
+  border: 2px solid black;
 }
 .about button:hover{
   background-color: #12efff;

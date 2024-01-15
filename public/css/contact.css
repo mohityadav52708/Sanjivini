@@ -431,6 +431,7 @@ body {
   align-items: center;
 }
 @media screen and (max-width: 600px) {
+  
   .parent_container {
     height: 95vw;
   }
@@ -582,6 +583,11 @@ body {
     justify-content: unset;
     flex-direction: column;
   }
+  .secondcontainer .minisecondhome .left .middle h1 {
+    margin: 30px;
+    font-size: 27px;
+    color: #0192bc;
+}
 
 }
 
@@ -601,4 +607,9 @@ body {
     width: 100%;
     height: 120vh;
   }
+  .secondcontainer .minisecondhome .left .middle h1 {
+    margin: 30px;
+    font-size: 27px;
+    color: #0192bc;
+}
 }
