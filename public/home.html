@@ -31,9 +31,35 @@
                 window.location.href = "/logout";
             }
         }
-    </script>
-
-    <!-- Add a button to trigger the logout confirmation -->
+           async function fetchDoctorsFromJSON(department) {
+            try {
+                const response = await fetch('/doctor.json'); 
+        
+                if (!response.ok) {
+                    throw new Error(`Error fetching doctors: ${response.statusText}`);
+                }
+        
+                const doctorsData = await response.json();
+                return doctorsData[department] || [];
+            } catch (error) {
+                console.error('Error fetching doctors:', error.message);
+                return [];
+            }
+        }
+async function openDoctorDetails(department) {
+    try {
+        const doctors = await fetchDoctorsFromJSON(department);
+        if (doctors.length > 0) {
+            const doctorsJSON = encodeURIComponent(JSON.stringify(doctors));
+            window.location.href = `doctor_details.html?department=${department}&doctors=${doctorsJSON}`;
+        } else {
+            console.error(`Doctors data not available for department: ${department}`);
+        }
+    } catch (error) {
+        console.error('Error opening doctor details:', error.message);
+    }
+}
+</script>
 
 </head>
 
@@ -178,17 +204,17 @@
                         </div>
                         <div class="thirdhome_bottom">
                             <div class="thirdhome_boxes">
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Cardiology')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/heart.png" alt="">
                                         <h3>CARDIOLOGY</h3>
                                     </div>
-                                    <div class="project-back">
+                                    <div class="project-back"  >
                                         <h3 id="disease_heading">CARDIOLOGY</h3>
                                         <p id="disease_para">Cardiology diseases, such as coronary artery disease and heart failure, impact the heart's function. Lifestyle choices and genetics play roles. Early detection and lifestyle adjustments are vital for effective management.</p>
                                     </div>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Ophthalmology')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/eye.png" alt="">
                                         <h3>OPHTHALMOLOGY</h3>
@@ -198,7 +224,7 @@
                                         <p id="disease_para">Ophthalmology focuses on eye health and vision. From routine eye exams to complex surgeries, it addresses conditions like cataracts and glaucoma. Regular check-ups contribute to overall eye well-being.</p>
                                     </div>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Pulmonary')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/kidney.png" alt="">
                                         <h3>PULMONARY</h3>
@@ -208,7 +234,7 @@
                                         <p id="disease_para">Pulmonary medicine specializes in respiratory health, managing conditions like asthma and chronic obstructive pulmonary disease (COPD). Expertise includes diagnostic tests and treatments to enhance lung function and overall respiratory wellness.</p>
                                     </div>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Dental')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/teeth.png" alt="">
                                         <h3>DENTAL</h3>
@@ -218,7 +244,7 @@
                                         <p id="disease_para">Dentistry focuses on oral health, addressing issues like cavities, gum diseases, and oral hygiene. Dental professionals provide preventive care, treatments, and cosmetic procedures, ensuring optimal dental well-being and a confident smile.</p>
                                     </div>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Diagnostics')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/diagonastic.png" alt="">
                                         <h3>DIAGNOSTICS</h3>
@@ -228,7 +254,7 @@
                                         <p id="disease_para">Diagnostics play a crucial role in healthcare, involving tests and procedures to identify diseases. Accurate diagnostics guide medical decisions, enabling timely treatment and improving patient outcomes by ensuring precision in healthcare interventions.</p> 
                                     </div>
                                 </div>
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Disabled')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/for disabled.png" alt="">
                                         <h3>DISABLED</h3>
@@ -239,7 +265,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Traumotoligy')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/traumotoligy.png" alt="">
                                         <h3>TRAUMOTOLIGY</h3>
@@ -250,7 +276,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDoctorDetails('Laboratory')">
                                     <div class="firstbox" class="project-front">
                                         <img src="/img/laboratory.png" alt="">
                                         <h3>LABORATORY</h3>
