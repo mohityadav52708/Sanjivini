@@ -48,21 +48,21 @@
     "Pulmonary": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "PULMONARY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "PULMONARY",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "PULMONARY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
@@ -71,21 +71,21 @@
     "Dental": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DENTAL",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "DENTAL",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DENTAL",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
@@ -94,21 +94,21 @@
     "Diagnostics": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DIAGNOSTICS",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "DIAGNOSTICS",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DIAGNOSTICS",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
@@ -117,21 +117,21 @@
     "Disabled": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DISABLED",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "DISABLED",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "DISABLED",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
@@ -140,21 +140,21 @@
     "Traumotoligy": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "TRAUMOTOLIGY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "TRAUMOTOLIGY",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "TRAUMOTOLIGY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
@@ -163,21 +163,21 @@
     "Laboratory": [
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "LABORATORY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor2.png",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. John Doe",
-        "specialization": "Ophthalmology",
+        "specialization": "LABORATORY",
         "timing": "8.00 AM - 4.00 PM",
         "image": "../img/doctor1.jpg",
         "Days": "Monday - Friday"
       },
       {
         "name": "Dr. Jane Smith",
-        "specialization": "Ophthalmology",
+        "specialization": "LABORATORY",
         "timing": "9.00 AM - 5.00 PM",
         "image": "../img/doctor4.jpg",
         "Days": "Monday - Friday"
