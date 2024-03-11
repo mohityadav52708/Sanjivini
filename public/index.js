@@ -68,7 +68,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
-
 app.post('/submit', async (req, res) => {
   try {
     // Create a new patient instance with data from the form
@@ -82,7 +81,7 @@ app.post('/submit', async (req, res) => {
     res.status(500).send('Error submitting data.');
   }
 });
-
+// all good
 
 //For routing
 app.get("/contact", function(req, res){
