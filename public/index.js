@@ -66,7 +66,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
 app.post('/submit', async (req, res) => {
@@ -99,11 +99,11 @@ app.get("/healthCare", function(req, res){
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
 app.get('/index', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 
 });
 
@@ -136,7 +136,7 @@ app.post('/login', async (req, res) => {
     } else {
       console.log('Invalid password');
       // Authentication failed, show an error message
-      return res.sendFile(path.join(__dirname, '../public/index.html'));
+      return res.sendFile(path.join(__dirname, '../public/login.html'));
     }
   } catch (error) {
     console.error('Error during index:', error);
@@ -177,7 +177,7 @@ app.post('/signup', async (req, res) => {
 
     if (existingUser) {
       // User already exists, redirect to index page
-      return res.send('<script>alert("User Already exist Please Login !!"); window.location="/index";</script>');
+      return res.send('<script>alert("User Already exist Please Login !!"); window.location="/login";</script>');
     }
 
     // Create a new user with email, hashed password, OTP, and its expiry
@@ -247,7 +247,7 @@ app.post('/verify-otp', async (req, res) => {
       await user.save();
 
       // Display an alert and redirect to the index page
-      return res.send('<script>alert("Email verified successfully."); window.location="/index";</script>');
+      return res.send('<script>alert("Email verified successfully."); window.location="/login";</script>');
     } else {
       // If OTP is invalid or expired, handle cleanup by removing the incomplete user
       await cleanupIncompleteUser(user._id);
@@ -280,7 +280,7 @@ app.get('/logout', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.sendFile(path.join(__dirname, '../public/index.html')); // Redirect to the index page after logout
+        res.sendFile(path.join(__dirname, '../public/login.html')); // Redirect to the index page after logout
       }
     });
   });
