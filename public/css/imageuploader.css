@@ -1,94 +1,182 @@
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    padding: 0;
-    background-image: linear-gradient(
-      to right,
-      rgba(17, 255, 255, 0.4) 0,
-      rgba(5, 192, 255, 0.8) 60%,
-      rgba(19, 247, 255, 0.8) 100%
-    );
-}
-
-h1 {
-    margin-top: 65px;
-}
-
-#imageInput {
-    display: none;
-}
-
-#uploadButton {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-#imageList {
-    text-align: left;
-    margin: 20px;
-}
-
-.document {
-    cursor: pointer;
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 20px;
+    background: #e8f9ff;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  #uploadButton, #searchBar {
+    padding: 10px 15px;
     border-radius: 5px;
-    background-color: #f8f8f8;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.document:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.01);
-}
-.document button{
+    border: none;
+    font-size: 16px;
+  }
+  
+  #uploadButton {
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    font-size: 15px;
-}
-#imageDisplay {
-    display: none;
+  }
+  
+  #uploadButton:hover {
+    background-color: #0056b3;
+  }
+  
+  #searchBar {
+    border: 1px solid #ccc;
+  }
+  
+  #dropArea {
+    border: 2px dashed #aaa;
+    padding: 30px;
+    margin: 20px auto;
+    width: 80%;
+    color: #888;
+    border-radius: 10px;
+  }
+  
+  #gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .thumbnail {
     position: relative;
-}
-
-#imageDisplay img {
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.05);
+  }
+  
+  .thumbnail::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* background: rgba(0,0,0,0.6); */
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .image-name {
+    margin-top: 8px;
+    font-size: 14px;
+    word-break: break-word;
     max-width: 100%;
-    max-height: 100%;
-}
-
-#deleteButton {
-    background-color: #d9534f;
+    color: #333;
+  }
+  .delete-btn {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: rgba(255, 0, 0, 0.7);
     color: white;
     border: none;
-    padding: 10px 20px;
+    font-size: 16px;
+    padding: 0 6px;
+    border-radius: 50%;
     cursor: pointer;
-    margin: 20px;
-}
-
-#backLink {
-    position: absolute;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:hover {
+    background: red;
+  }
+  #previewOverlay {
+    position: fixed;
     top: 0;
-    right: 0;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 999;
+  }
+  
+  #previewOverlay.hidden {
     display: none;
-}
-@media screen and (max-width: 600px) {
-    .parent_container {
-      height: 95vw;
+  }
+  
+  #previewImage {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+  }
+  
+  #closePreview {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+  }
+  
+  #previewInfo {
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  #toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  #toast.error {
+    background: #dc3545;
+  }
+  
+  @media (max-width: 600px) {
+    #dropArea {
+      width: 95%;
     }
-    body{
-        background-image: linear-gradient(
-            to right,
-            rgba(5, 192, 255, 0.8) 0,
-            rgba(19, 247, 255, 0.8) 100%
-          );
-    }
-}
+  }
+  
+
+
+
+  

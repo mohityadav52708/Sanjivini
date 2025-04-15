@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
-    <link rel="stylesheet" href="../css/imageuploader.css">
-    <link rel="icon" type="image/x-icon" href="./img/icon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real-Time Image Gallery</title>
+  <link rel="stylesheet" href="/css/imageuploader.css" />
+  <link rel="icon" href="./img/icon.png" />
 </head>
 <body>
-    <h1>Image Gallery</h1>
-    <input type="file" id="imageInput" accept="image/*">
+  <h1>Real-Time Image Gallery</h1>
+
+  <div class="controls">
+    <input type="file" id="imageInput" accept="image/*" hidden />
     <button id="uploadButton">Upload Image</button>
-    <div id="imageList"></div>
-    <div id="imageDisplay"></div>
-    <a id="backLink" href="#" style="display: none;">Back to Gallery</a>
-    <script src="/imageuploader.js"></script>
+    <input type="text" id="searchBar" placeholder="Search images..." />
+  </div>
+
+  <div id="dropArea">Drag & Drop Images Here</div>
+
+  <div id="gallery"></div>
+
+  <div id="previewOverlay" class="hidden">
+    <span id="closePreview">×</span>
+    <img id="previewImage" />
+    <p id="previewInfo"></p>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="/imageuploader.js"></script>
 </body>
 </html>
